@@ -20,8 +20,8 @@ deploy:
     api_key:
       secure: P6zTOafeMF3tVmK/GdNZ1tnJH4sioRN3s0VWfCepazy7RGBd/Gv3eI4Vgg/N4Y9ulacCKqJYGJYbS+qOrJBTYpZU+bo5dL/ftN5YN5TjGApxA9/E/v84NGUXWVq2D5qDQBKyj5k7ykkpQDpD/41IxAeeVyGLosYkUIcIvXomtcI=
     file:
-      - "remark-yaml-config.js"
-      - "remark-yaml-config.min.js"
+      - "remark-yaml-meta.js"
+      - "remark-yaml-meta.min.js"
     on:
       tags: true
       node: '6.0'

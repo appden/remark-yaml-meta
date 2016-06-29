@@ -1,5 +1,5 @@
 {
-  "name": "remark-yaml-config",
+  "name": "remark-yaml-meta",
   "version": "3.0.2",
   "description": "Configure remark with YAML front-matter",
   "license": "MIT",
@@ -15,9 +15,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wooorm/remark-yaml-config.git"
+    "url": "https://github.com/wooorm/remark-yaml-meta.git"
   },
-  "bugs": "https://github.com/wooorm/remark-yaml-config/issues",
+  "bugs": "https://github.com/wooorm/remark-yaml-meta/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
@@ -48,8 +48,8 @@
     "unified": "^4.1.2"
   },
   "scripts": {
-    "build-bundle": "browserify --no-builtins index.js -s remarkYAMLConfig > remark-yaml-config.js",
-    "build-mangle": "esmangle remark-yaml-config.js > remark-yaml-config.min.js",
+    "build-bundle": "browserify --no-builtins index.js -s remarkYAMLConfig > remark-yaml-meta.js",
+    "build-mangle": "esmangle remark-yaml-meta.js > remark-yaml-meta.min.js",
     "build-md": "remark . --quiet --frail",
     "build": "npm run build-md && npm run build-bundle && npm run build-mangle",
     "lint-api": "eslint .",

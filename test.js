@@ -16,7 +16,7 @@ var yamlConfig = require('./');
  * Tests.
  */
 
-test('remark-yaml-config', function (t) {
+test('remark-yaml-meta', function (t) {
     t.equal(
         remark().use(yamlConfig).process('# Foo bar\n').toString(),
         '# Foo bar\n',

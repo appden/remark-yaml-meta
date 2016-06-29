@@ -1,4 +1,4 @@
-# remark-yaml-config [![Build Status][build-badge]][build-status] [![Coverage Status][coverage-badge]][coverage-status] [![Chat][chat-badge]][chat]
+# remark-yaml-meta [![Build Status][build-badge]][build-status] [![Coverage Status][coverage-badge]][coverage-status] [![Chat][chat-badge]][chat]
 
 Configure [**remark**][remark] with YAML front-matter.
 
@@ -7,10 +7,10 @@ Configure [**remark**][remark] with YAML front-matter.
 [npm][]:
 
 ```bash
-npm install remark-yaml-config
+npm install remark-yaml-meta
 ```
 
-**remark-yaml-config** is also available as an AMD, CommonJS, and
+**remark-yaml-meta** is also available as an AMD, CommonJS, and
 globals module, [uncompressed and compressed][releases].
 
 ## Usage
@@ -19,7 +19,7 @@ Dependencies:
 
 ```javascript
 var remark = require('remark');
-var config = require('remark-yaml-config');
+var config = require('remark-yaml-meta');
 ```
 
 Process:
@@ -69,19 +69,19 @@ more visible.
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/wooorm/remark-yaml-config.svg
+[build-badge]: https://img.shields.io/travis/wooorm/remark-yaml-meta.svg
 
-[build-status]: https://travis-ci.org/wooorm/remark-yaml-config
+[build-status]: https://travis-ci.org/wooorm/remark-yaml-meta
 
-[coverage-badge]: https://img.shields.io/codecov/c/github/wooorm/remark-yaml-config.svg
+[coverage-badge]: https://img.shields.io/codecov/c/github/wooorm/remark-yaml-meta.svg
 
-[coverage-status]: https://codecov.io/github/wooorm/remark-yaml-config
+[coverage-status]: https://codecov.io/github/wooorm/remark-yaml-meta
 
 [chat-badge]: https://img.shields.io/gitter/room/wooorm/remark.svg
 
 [chat]: https://gitter.im/wooorm/remark
 
-[releases]: https://github.com/wooorm/remark-yaml-config/releases
+[releases]: https://github.com/wooorm/remark-yaml-meta/releases
 
 [license]: LICENSE
 

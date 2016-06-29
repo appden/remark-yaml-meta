@@ -2,8 +2,8 @@
   "excludeFiles": [
     "coverage/",
     "node_modules/",
-    "remark-yaml-config.js",
-    "remark-yaml-config.min.js"
+    "remark-yaml-meta.js",
+    "remark-yaml-meta.min.js"
   ],
   "preset": "crockford",
   "requireMultipleVarDecl": false,

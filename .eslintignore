@@ -1,4 +1,4 @@
 coverage/
 example.js
-remark-yaml-config.js
-remark-yaml-config.min.js
+remark-yaml-meta.js
+remark-yaml-meta.min.js
