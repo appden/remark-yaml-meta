@@ -1,20 +1,15 @@
 // Dependencies:
 var remark = require('remark');
-var config = require('./index.js');
+var metaPlugin = require('./index.js');
 
 // Process:
-var file = remark().use(config).process([
+var file = remark().use(metaPlugin).process([
     '---',
-    'remark:',
-    '  commonmark: true',
-    '  bullet: "*"',
+    'foo:',
+    '  bar: true',
     '---',
-    '',
-    '1) Commonmark list (this is a parse setting)',
-    '',
-    '- Hello (this is a stringification setting)',
     ''
 ].join('\n'));
 
 // Yields:
-console.log('markdown', String(file));
+console.log('markdown', JSON.stringify(file.meta, 0, 2));

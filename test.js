@@ -7,7 +7,6 @@
  */
 
 var test = require('tape');
-var unified = require('unified');
 var remark = require('remark');
 var html = require('remark-html');
 var metaPlugin = require('./');

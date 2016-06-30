@@ -10,34 +10,35 @@ Extract YAML front-matter from markdown.
 npm install remark-yaml-meta
 ```
 
-**remark-yaml-meta** is also available as an AMD, CommonJS, and
-globals module, [uncompressed and compressed][releases].
-
 ## Usage
 
 Dependencies:
 
 ```javascript
 var remark = require('remark');
-var meta = require('remark-yaml-meta');
+var metaPlugin = require('remark-yaml-meta');
 ```
 
 Process:
 
 ```javascript
-var file = remark().use(meta).process([
+var file = remark().use(metaPlugin).process([
     '---',
     'foo:',
     '  bar: true',
     '---',
     ''
-].join('\n')).meta;
+].join('\n'));
 ```
 
 Yields:
 
-```javascript
-{ foo: { bar: true }}
+```markdown
+{
+  "foo": {
+    "bar": true
+  }
+}
 ```
 
 ## API
@@ -56,23 +57,11 @@ is saved to the `meta` property of the retuned [`VFile`][unified-file].
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/akagomez/remark-yaml-meta.svg
-
-[build-status]: https://travis-ci.org/akagomez/remark-yaml-meta
-
-[coverage-badge]: https://img.shields.io/codecov/c/github/akagomez/remark-yaml-meta.svg
-
-[coverage-status]: https://codecov.io/github/akagomez/remark-yaml-meta
-
-[releases]: https://github.com/akagomez/remark-yaml-meta/releases
-
 [license]: LICENSE
 
 [author]: http://akagomez.com
 
 [npm]: https://docs.npmjs.com/cli/install
-
-[remark]: https://github.com/wooorm/remark
 
 [parse-settings]: https://github.com/wooorm/remark/blob/master/packages/remark-parse/readme.md#options
 
@@ -81,5 +70,3 @@ is saved to the `meta` property of the retuned [`VFile`][unified-file].
 [remark-yaml-config]: https://github.com/wooorm/remark-yaml-config
 
 [unified-file]: https://github.com/wooorm/unified#file
-
-[unified-process]: https://github.com/wooorm/unified#processorprocessfilevalue-options-done

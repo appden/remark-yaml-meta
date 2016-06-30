@@ -1,12 +1,12 @@
 {
   "name": "remark-yaml-meta",
-  "version": "3.0.2",
-  "description": "Configure remark with YAML front-matter",
+  "version": "0.1.0",
+  "description": "Extract YAML front-matter from markdown.",
   "license": "MIT",
   "keywords": [
     "yaml",
     "options",
-    "config",
+    "meta",
     "settings",
     "remark"
   ],
@@ -15,10 +15,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wooorm/remark-yaml-meta.git"
+    "url": "https://github.com/akagomez/remark-yaml-meta.git"
   },
-  "bugs": "https://github.com/wooorm/remark-yaml-meta/issues",
-  "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
+  "bugs": "https://github.com/akagomez/remark-yaml-meta/issues",
+  "author": "Chris Gomez <tituswormer@gmail.com> (http://akagomez.com)",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
   ],
