@@ -38,10 +38,9 @@ function factory(original) {
 
         try {
             data = jsYAML.safeLoad(marker.value);
-            data = data && data.remark;
 
-            if (data) {
-                self.setOptions(data);
+            if (typeof data === 'object') {
+                self.file.meta = Object.assign(self.file.meta || {}, data);
             }
         } catch (exception) {
             self.file.fail(exception.message, marker);

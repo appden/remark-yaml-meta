@@ -1,6 +1,6 @@
-# remark-yaml-meta [![Build Status][build-badge]][build-status] [![Coverage Status][coverage-badge]][coverage-status] [![Chat][chat-badge]][chat]
+# remark-yaml-meta
 
-Configure [**remark**][remark] with YAML front-matter.
+Extract YAML front-matter from markdown.
 
 ## Installation
 
@@ -19,38 +19,25 @@ Dependencies:
 
 ```javascript
 var remark = require('remark');
-var config = require('remark-yaml-meta');
+var meta = require('remark-yaml-meta');
 ```
 
 Process:
 
 ```javascript
-var file = remark().use(config).process([
+var file = remark().use(meta).process([
     '---',
-    'remark:',
-    '  commonmark: true',
-    '  bullet: "*"',
+    'foo:',
+    '  bar: true',
     '---',
-    '',
-    '1) Commonmark list (this is a parse setting)',
-    '',
-    '- Hello (this is a stringification setting)',
     ''
-].join('\n'));
+].join('\n')).meta;
 ```
 
 Yields:
 
-```markdown
----
-remark:
-  commonmark: true
-  bullet: "*"
----
-
-1.  Commonmark list (this is a parse setting)
-
-*   Hello (this is a stringification setting)
+```javascript
+{ foo: { bar: true }}
 ```
 
 ## API
@@ -60,32 +47,28 @@ remark:
 Passes the configuration at the `remark` field as [parse][parse-settings]
 and [stringify][stringify-settings] settings.
 
-Just like [**remark-comment-config**][remark-comment-config], but YAML is
-more visible.
+Just like [**remark-yaml-config**][remark-yaml-config], but the parsed object
+is saved to the `meta` property of the retuned [`VFile`][unified-file].
 
 ## License
 
-[MIT][license] © [Titus Wormer][author]
+[MIT][license] © [Chris Gomez][author]
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/wooorm/remark-yaml-meta.svg
+[build-badge]: https://img.shields.io/travis/akagomez/remark-yaml-meta.svg
 
-[build-status]: https://travis-ci.org/wooorm/remark-yaml-meta
+[build-status]: https://travis-ci.org/akagomez/remark-yaml-meta
 
-[coverage-badge]: https://img.shields.io/codecov/c/github/wooorm/remark-yaml-meta.svg
+[coverage-badge]: https://img.shields.io/codecov/c/github/akagomez/remark-yaml-meta.svg
 
-[coverage-status]: https://codecov.io/github/wooorm/remark-yaml-meta
+[coverage-status]: https://codecov.io/github/akagomez/remark-yaml-meta
 
-[chat-badge]: https://img.shields.io/gitter/room/wooorm/remark.svg
-
-[chat]: https://gitter.im/wooorm/remark
-
-[releases]: https://github.com/wooorm/remark-yaml-meta/releases
+[releases]: https://github.com/akagomez/remark-yaml-meta/releases
 
 [license]: LICENSE
 
-[author]: http://wooorm.com
+[author]: http://akagomez.com
 
 [npm]: https://docs.npmjs.com/cli/install
 
@@ -95,4 +78,8 @@ more visible.
 
 [stringify-settings]: https://github.com/wooorm/remark/blob/master/packages/remark-stringify/readme.md#options
 
-[remark-comment-config]: https://github.com/wooorm/remark-comment-config
+[remark-yaml-config]: https://github.com/wooorm/remark-yaml-config
+
+[unified-file]: https://github.com/wooorm/unified#file
+
+[unified-process]: https://github.com/wooorm/unified#processorprocessfilevalue-options-done
