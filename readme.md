@@ -16,7 +16,7 @@ Dependencies:
 
 ```javascript
 var remark = require('remark');
-var metaPlugin = require('remark-yaml-meta');
+var metaPlugin = require('@justinc/remark-yaml-meta');
 ```
 
 Process:
