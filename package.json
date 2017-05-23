@@ -1,6 +1,6 @@
 {
   "name": "@justinc/remark-yaml-meta",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Extract YAML front-matter from markdown.",
   "license": "MIT",
   "keywords": [
