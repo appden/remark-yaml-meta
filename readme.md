@@ -22,23 +22,18 @@ var metaPlugin = require('remark-yaml-meta');
 Process:
 
 ```javascript
-var file = remark().use(metaPlugin).process([
-    '---',
-    'foo:',
-    '  bar: true',
-    '---',
-    ''
-].join('\n'));
-```
-
-Yields:
-
-```markdown
-{
-  "foo": {
-    "bar": true
-  }
-}
+remark()
+    .use(metaPlugin)
+    .process([
+        '---',
+        'foo:',
+        '  bar: true',
+        '---',
+        ''
+    ].join('\n'), function (err, file) {
+        // file.meta now has the parsed YAML as an Object
+        console.log(file.meta) // { foo: { bar: true } }
+    })
 ```
 
 ## API

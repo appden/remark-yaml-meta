@@ -15,25 +15,43 @@ var metaPlugin = require('./');
  * Tests.
  */
 
-test('remark-yaml-meta', function (t) {
-    t.equal(
-        remark().use(metaPlugin).process('# Foo bar\n').toString(),
-        '# Foo bar\n',
-        'Should not fail without yaml'
-    );
+test('No YAML', function (t) {
+    remark()
+        .use(metaPlugin)
+        .process('#Foo bar\n', function (err, file) {
+            if (err) {
+                return t.fail(err)
+            }
+            t.equal(
+                file.contents,
+                '\\#Foo bar\n',
+                'Should not fail without yaml'
+            )
+            t.end()
+        })
+})
 
-    t.equal(
-        remark().use(html).use(metaPlugin).process([
+test('Creates a meta property when there is YAML', function (t) {
+    remark()
+        .use(metaPlugin)
+        .process([
             '---',
             'foo: bar',
             '---',
             ''
-        ].join('\n')).meta.foo, 'bar',
-        'A meta property is created'
-    );
+        ].join('\n'), function (err, file) {
+            if (err) {
+                return t.fail(err)
+            }
+            t.equal(file.meta.foo, 'bar', 'A meta property is created')
+            t.end()
+        })
+})
 
-    t.equal(
-        remark().use(html).use(metaPlugin).process([
+test('The meta object can be extended', function (t) {
+    remark()
+        .use(metaPlugin)
+        .process([
             '---',
             'foo: bar',
             '---',
@@ -41,31 +59,53 @@ test('remark-yaml-meta', function (t) {
             'foo: boo',
             '---',
             ''
-        ].join('\n')).meta.foo, 'boo',
-        'The meta object is extended'
-    );
+        ].join('\n'), function (err, file) {
+            if (err) {
+                return t.fail(err)
+            }
+            t.equal(file.meta.foo, 'boo', 'The meta object is extended')
+            t.end()
+        })
+})
 
-    t.deepEqual(
-        Object.keys(remark().use(html).use(metaPlugin).process([
+test('All properties are set', function (t) {
+    remark()
+        .use(html)
+        .use(metaPlugin)
+        .process([
             '---',
             'foo: bar',
             'bar: foo',
             '---',
             ''
-        ].join('\n')).meta), ['foo', 'bar'],
-        'All properties are set'
-    );
+        ].join('\n'), function (err, file) {
+            if (err) {
+                return t.fail(err)
+            }
+            t.deepEqual(
+                Object.keys(file.meta),
+                ['foo', 'bar'],
+                'All properties are set'
+            )
+            t.end()
+        })
+})
 
-    t.equal(
-        remark().use(html).use(metaPlugin).process([
+test('Objects can be nested', function (t) {
+    remark()
+        .use(html)
+        .use(metaPlugin)
+        .process([
             '---',
             'foo:',
             '  bar: nested',
             '---',
             ''
-        ].join('\n')).meta.foo.bar, 'nested',
-        'Objects can be nested'
-    );
-
-    t.end();
-});
+        ].join('\n'), function (err, file) {
+            if (err) {
+                return t.fail(err)
+            }
+            t.equal(file.meta.foo.bar, 'nested', 'Objects can be nested')
+            t.end()
+        })
+})
