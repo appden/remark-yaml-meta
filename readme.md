@@ -7,7 +7,7 @@ Extract YAML front-matter from markdown.
 [npm][]:
 
 ```bash
-npm install remark-yaml-meta
+npm install @justinc/remark-yaml-meta
 ```
 
 ## Usage
