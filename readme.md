@@ -7,7 +7,7 @@ Extract YAML front-matter from markdown.
 [npm][]:
 
 ```bash
-npm install remark-yaml-meta
+npm install @justinc/remark-yaml-meta
 ```
 
 ## Usage
@@ -16,29 +16,27 @@ Dependencies:
 
 ```javascript
 var remark = require('remark');
-var metaPlugin = require('remark-yaml-meta');
+var metaPlugin = require('@justinc/remark-yaml-meta');
+var report = require('vfile-reporter');
 ```
 
 Process:
 
 ```javascript
-var file = remark().use(metaPlugin).process([
-    '---',
-    'foo:',
-    '  bar: true',
-    '---',
-    ''
-].join('\n'));
-```
-
-Yields:
-
-```markdown
-{
-  "foo": {
-    "bar": true
-  }
-}
+remark()
+    .use(metaPlugin)
+    .process([
+        '---',
+        'foo:',
+        '  bar: true',
+        '---',
+        ''
+    ].join('\n'), function (err, file) {
+        // handle error with `vfile-reporter` to show messages
+        console.error(report(err || file));
+        // file.meta now has the parsed YAML as an Object
+        console.log(file.meta) // { foo: { bar: true } }
+    })
 ```
 
 ## API
