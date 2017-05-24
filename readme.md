@@ -17,6 +17,7 @@ Dependencies:
 ```javascript
 var remark = require('remark');
 var metaPlugin = require('@justinc/remark-yaml-meta');
+var report = require('vfile-reporter');
 ```
 
 Process:
@@ -31,6 +32,8 @@ remark()
         '---',
         ''
     ].join('\n'), function (err, file) {
+        // handle error with `vfile-reporter` to show messages
+        console.error(report(err || file));
         // file.meta now has the parsed YAML as an Object
         console.log(file.meta) // { foo: { bar: true } }
     })
